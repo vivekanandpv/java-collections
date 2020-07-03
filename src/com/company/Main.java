@@ -1,52 +1,37 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        //  Array is the most basic data structure that is implemented
-        //  directly by the language. This as close to the machine as possible.
-        //  But this is fixed in size (cannot grow and shrink). The size of the array
-        //  has to be a compile-time constant. Array is non-generic
+        //  A Set is an unordered collection of unique elements
+        //  Set<E> is the interface for set data structures
+        //  There are 3 primary implementations:
+        //      HashSet, LinkedHashSet, TreeSet
 
-        int[] intArray = {0, 1, 2, 3, 4};
+        Set<Integer> integerSet = new HashSet<>();
+        Set<Integer> integerSet1 = new LinkedHashSet<>();
+        Set<Integer> integerSet2 = new TreeSet<>();
 
-        //  We obviously want the performance of raw array, but we also want:
-        //  1. dynamic size
-        //  2. generic support
-        //  3. convenient API for element manipulation
+        //  Set<E>: https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Set.html
 
-        //  There are two candidate data-structures: ArrayList and LinkedList
-        //  ArrayList elements are in contiguous blocks in memory, hence providing
-        //  faster index-based access. As the consequence right-shift and left-shift
-        //  operations are inefficient. LinkedList in inefficient in random-access
-        //  but efficient in addition/removal.
-
-        //  In Java collection API, we do not program to classes, but to interfaces.
-        //  Therefore, whether ArrayList or LinkedList, we use the List<E> interface.
-
-        List<Integer> integerList1 = new ArrayList<>();
-        List<Integer> integerList2 = new LinkedList<>();
-
-        //  List<E>: https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/List.html
+        //  Index based operations are not supported
+        //  But see the TreeSet<E>: https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/TreeSet.html
 
         //  Actions: Mutators
-        integerList1.add(100);
-        integerList1.remove(0);
-        integerList1.addAll(List.of(1, 2, 3, 4));
-        integerList1.add(2, 200);
+        integerSet.add(100);
+        integerSet.remove(0);   // 0 here is an object
+        integerSet.addAll(List.of(1, 2, 3, 4));
 
         //  Actions: Enquirers
-        int a = integerList1.get(0);    //  safe?
-        int b = integerList1.indexOf(200);  //  200 is now of Integer type
-        int size = integerList1.size();
-        boolean contains200 = integerList1.contains(200);
+        int size = integerSet.size();
+        boolean contains200 = integerSet.contains(200);
+        boolean isEmpty = integerSet.isEmpty();
 
         //  Actions: Iterator
-        for(Integer i: integerList1) {
+        //  Do not write code that is dependent on the order (except TreeSet as implementation)
+        for(Integer i: integerSet) {
             System.out.println("Element: " + i);
         }
     }
