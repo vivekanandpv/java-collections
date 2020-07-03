@@ -71,6 +71,5 @@ public class Main {
         System.out.println("----------- Search -----------");
         int indexOf10 = sortedList.indexOf(10); //  -1 if not found
         System.out.println("10 is found at: " + indexOf10);
-
     }
 }
