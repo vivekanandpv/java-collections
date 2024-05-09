@@ -53,5 +53,10 @@ public class Main {
         for(String key: map1.keySet()) {
             System.out.println("Key: " + key +", Value: " + map1.get(key));
         }
+
+        //  entry iteration
+        for (Map.Entry<String, Integer> pair: map1.entrySet()) {
+            System.out.println("Key: " + pair.getKey() +", Value: " + pair.getValue());
+        }
     }
 }
