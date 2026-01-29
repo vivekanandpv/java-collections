@@ -6,6 +6,8 @@ import java.util.LinkedList;
 public class Main {
 
     public static void main(String[] args) {
+        
+        //  https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Deque.html
         Deque<Integer> stack = new LinkedList<>();
 
         //  stack api
